@@ -1,0 +1,27 @@
+
+#### Data
+
+This data shows the historical data about women's earnings and employment status, as well as detailed information about specific occupation and earnings from 2013-2016.
+The data source is from the Bureau of Labor Statistics and the Census Bureau accessed from <https://www.census.gov/data/tables/time-series/demo/industry-occupation/median-earnings.html> 
+
+
+#### Purpose
+
+The purpose of the app is to:
+
+1. Show how the Women's Earnings have fared over the years for various age groups,
+2. show how Women's Employment is with comparison with Males, and 
+3. Explore whether Occupation plays a role in the above mentioned points. 
+
+The data showed positive correlations of earnings for females. However the employment resulted in the polar opposite and the occupation ended up being depending on what the user selected. The app used interactive components to see how the earnings and employment were affected throughout the years whereas, the choice of occupation greatly played a role in determining whether males or females were the eventually winners. 
+
+#### Creator
+
+Shreyansh Mahtolia (smah0071@student.monash.edu)
+
+<details>
+<summary>Session information</summary>
+```{r, echo = FALSE}
+sessioninfo::session_info()
+```
+</details>

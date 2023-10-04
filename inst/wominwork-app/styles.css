@@ -1,0 +1,27 @@
+.about {
+  color: black;
+  background-color: #c42fb8;
+  border: 1px dashed grey;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.row {
+  padding: 5px;
+}
+
+h3 {
+  color: #07c5eb;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+details > summary:first-of-type {
+    display: list-item;
+    counter-increment: list-item 0;
+    list-style: inside disclosure-closed;
+}
+
+.sidebar {
+  background-color: white;
+}

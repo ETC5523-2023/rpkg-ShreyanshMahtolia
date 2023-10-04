@@ -1,0 +1,94 @@
+---
+title: "Women In The Workforce"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Women In The Workforce}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(WomInWorkShiny)
+```
+
+This package contains data about how females fare in the workplace in terms of earnings, workforce, and employment
+rate throughout the years. It also contains information for both genders for comparison purposes. The data has been retrieved from the tidytuesday repository available on GitHub. The package also allows the user to explore said data with functions. An inbuilt Shiny App is present as well in the package which triggers when a function is run to launch a portal where users can gain insights about the data as well as interact with the app. In addition, the package also has a function which displays a plot when Finally, the package has a quadratic function which enables users to find out the roots of the quadratic equation.
+
+The dataframes found in the package related to the data are as follows:
+
+- `earnings_female()` - Returns a tibble of earnings for females for various age groups shown year-wise. 
+
+- `employed_gender()` - Returns a tibble of employment rate for both genders regarding full-time and part-time job types shown year-wise.
+
+- `jobs_earnings()` - Returns a tibble of earnings for both genders based on occupation shown year-wise.
+
+- `jobs_gender()` - Returns a tibble with both earnings and workforce categorized by each gender based variable based on occupation, shown year-wise.
+
+- `jobs_workforce()` - Returns a tibble of total number of workforce present for each occupation based on genders, shown year-wise.
+
+The function in the package to solve a quadratic equation is as follows:
+
+- `quadratic()` - Takes three inputs which are the coefficients of a quadratic function and returns the roots of said function depending on what type of roots are available, determined by calculating the discriminant. 
+
+The function in the package to launch an inbuilt shiny app is as follows:
+
+- `run_app()` - Triggers the inbuilt shiny app which displays various plots and insights about how women fare in the workplace especially against men.
+
+The function in the package to plot a graph based on inputs from the interactive elements from the shiny app is as follows:
+
+- `earningsplot()` - Displays a line chart for the entered age group for females from 1979 until 2011.
+
+- `age_groups` - Returns a vector displaying all the available age groups present in the female earnings dataset to aid the user in entering valid age groups in the `earnnigs_plot` function.
+
+### Examples:
+
+```{r func1}
+head(earnings_female)
+```
+
+
+```{r func2}
+head(employed_gender)
+```
+
+
+```{r func3}
+head(jobs_earnings)
+```
+
+
+```{r func4}
+head(jobs_gender,4)
+```
+
+
+```{r func5}
+head(jobs_workforce)
+```
+
+
+```{r func6}
+quadratic(1,5,6)
+
+quadratic(1,-6,9)
+
+quadratic(5,2,1)
+```
+
+
+```{r func7}
+earningsplot("25-34 years")
+```
+
+
+```{r func8}
+age_groups
+```
+

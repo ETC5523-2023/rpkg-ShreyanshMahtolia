@@ -1,11 +1,29 @@
-Package: change-this-to-your-pkg-name
-Title: What the Package Does (One Line, Title Case)
+Package: WomInWorkShiny
+Title: Runs An Interactive Shiny App Along With A Quadratic Function
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "your@email.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+    person("Shreyansh", "Mahtolia", , "smah0071@student.monash.edu", role = c("aut", "cre"))
+Description: Allows the user to explore various datasets related to women's earnings, 
+    overall employment rate, and the employment rate by job category. It also launches 
+    an inbuilt Shiny app to visualize and interact with the plots to gain 
+    valuable insights. It also has a function to find the roots of a quadratic
+    equation depending on the discriminant calculated.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Language: es
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
+Depends: 
+    R (>= 2.10)
+LazyData: true
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0)
+Imports: 
+    dplyr,
+    ggplot2,
+    shiny,
+    tibble
+Config/testthat/edition: 3
+VignetteBuilder: knitr
