@@ -34,6 +34,12 @@ the data via visualizations as well as interact with them.
 One can install the package from the following GitHub link:
 [WomInWorkShiny](https://github.com/ETC5523-2023/rpkg-ShreyanshMahtolia)
 
+In R:
+
+```r
+install.packages("WomInWorkShiny")
+```
+
 ### Examples
 
 The following code can be used to load in the package:

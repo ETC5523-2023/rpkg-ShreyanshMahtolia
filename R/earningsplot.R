@@ -27,7 +27,6 @@ earningsplot <- function(age_group){
       ggplot2::labs(x = "Year", y = "Percentage") +
       ggplot2::labs(title = "Earnings of Females From 1979-2011") +
       ggplot2::theme_bw()
-      plot1 <- print(plot1)
     return(plot1)
   }
 

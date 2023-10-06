@@ -14,12 +14,134 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
+```{r setup,warning=FALSE,message=FALSE,echo=FALSE}
 library(WomInWorkShiny)
+library(tibble)
+library(kableExtra)
 ```
 
 This package contains data about how females fare in the workplace in terms of earnings, workforce, and employment
 rate throughout the years. It also contains information for both genders for comparison purposes. The data has been retrieved from the tidytuesday repository available on GitHub. The package also allows the user to explore said data with functions. An inbuilt Shiny App is present as well in the package which triggers when a function is run to launch a portal where users can gain insights about the data as well as interact with the app. In addition, the package also has a function which displays a plot when Finally, the package has a quadratic function which enables users to find out the roots of the quadratic equation.
+
+### Why WomInWorkShiny?
+
+The package allows exploration of data related to women and gives the user the ability to view and manipulate the data further depending on what key takeaways they wish to have. The package also provides a relative ease of access of readability in the form of visualizations that can be found in the inbuilt shiny app. This skips the entire process of wrangling and plotting the visualizations themselves and the user can straightaway analyze the data in the easiest form, 'visualization'. The visualizations also have an additional advantage of being interactive allowing users to subset the plot to their own liking.
+
+### Data Description:
+
+- In the first dataset "earnings_female", the variable 'group' was changed to 'Age_Group' to make more sense. The final data dictionary can be seen below:
+
+```{r datades1,echo=FALSE}
+desc <- tibble(
+  variable = c("Year", "Age_Group", "percent"),
+  class = c("integer", "character", "double"),
+  description = c(
+    "Year",
+    "Age group of female",
+    "Female salary percent of male salary"
+  )
+)
+kbl(desc, table.attr = 'data-quarto-disable-processing="true"') |>
+  kable_styling(full_width = FALSE) |>
+  column_spec(1, width = "2cm", border_right = T) |>
+  column_spec(2, width = "2cm", border_right = T) |>
+  column_spec(3, width = "10cm")
+```
+
+
+- In the second dataset "employed_gender", only a few variables were selected which were of interest. Next, the variables 'full_time_female', 'full_time_male', 'part_time_female', 'part_time_male' were all pivoted under a new variable called 'Job_Type' with their respective values under another new variable called 'Percentage'. The final data dictionary can be seen below:
+
+```{r datadesc2,echo=FALSE}
+desc1 <- tibble(
+  variable = c("year", "Job_Type", "Percentage"),
+  class = c("integer", "character", "double"),
+  description = c("Year",
+                  "Type of Employment",
+                  "Percentage employed")
+)
+kbl(desc1, table.attr = 'data-quarto-disable-processing="true"') |>
+  kable_styling(full_width = FALSE) |>
+  column_spec(1, width = "2cm", border_right = T) |>
+  column_spec(2, width = "2cm", border_right = T) |>
+  column_spec(3, width = "10cm")
+```
+
+
+- In the third dataset "jobs_gender", only a few variables were selected which were of interest. Next, the variables 'workers_female', 'workers_male' were all pivoted under a new variable called 'Gender' with their respective values under another new variable called 'Workforce'. The final data dictionary can be seen below:
+
+```{r datadesc3,echo=FALSE}
+desc2 <-
+  tibble(
+    variable = c("year","occupation","major_category", "minor_category", "total_workers", "workers_male",
+                 "workers_female", "percent_female", "total_earnings", "total_earnings_male", "total_earnings_female", "wage_percent_of_male"),
+    class = c("double", "character","character","character","double","double","double","double","double","double","double","double"),
+    description = c(
+      "Year",
+      "Specific job/career",
+      "Broad category of occupation",
+      "Fine category of occupation",
+      "Total estimated full-time workers > 16 years old",
+      "Estimated MALE full-time workers > 16 years old",
+      "Estimated FEMALE full-time workers > 16 years old",
+      "The percent of females for specific occupation",
+      "Total estimated median earnings for full-time workers > 16 years old",
+      "Estimated MALE median earnings for full-time workers > 16 years old",
+      "Estimated FEMALE median earnings for full-time workers > 16 years old",
+      "Female wages as percent of male wages - NA for occupations with small sample size"
+    )
+  )
+kbl(desc2, table.attr = 'data-quarto-disable-processing="true"') |>
+  kable_styling(full_width = FALSE) |>
+  column_spec(1, width = "4cm", border_right = T) |>
+  column_spec(2, width = "2cm", border_right = T) |>
+  column_spec(3, width = "10cm") 
+```
+
+
+- In the fourth dataset "jobs_earnings", first only the required columns were selected from the "jobs_gender" dataframe. Then the gender columns were pivoted into one new column called 'Gender' with the values creating 'Earnings'. The final data dictionary can be seen below:
+
+```{r datadesc4,echo=FALSE}
+desc3 <-
+  tibble(
+    variable = c("year","occupation", "minor_category", "Gender", "Earnings"),
+    class = c("double","character", "character", "character", "double"),
+    description = c(
+      "Year",
+      "Broad category of occupation",
+      "Fine category of occupation",
+      "Gender type",
+      "Total earnings for full-time workers > 16 years"
+    )
+  )
+kbl(desc3, table.attr = 'data-quarto-disable-processing="true"') |>
+  kable_styling(full_width = FALSE) |>
+  column_spec(1, width = "4cm", border_right = T) |>
+  column_spec(2, width = "2cm", border_right = T) |>
+  column_spec(3, width = "10cm") 
+```
+
+
+- In the fifth dataset "jobs_workforce", first only the required columns were selected from the "jobs_gender" dataframe. Then the gender columns were pivoted into one new column called 'Gender' with the values creating 'Workforce'. The final data dictionary can be seen below:
+
+```{r datadesc5,echo=FALSE}
+desc4 <-
+  tibble(
+    variable = c("year","occupation", "minor_category", "Gender", "Workforce"),
+    class = c("double","character", "character", "character", "double"),
+    description = c(
+      "Year",
+      "Broad category of occupation",
+      "Fine category of occupation",
+      "Gender type",
+      "Total emplyoment for full-time workers > 16 years"
+    )
+  )
+kbl(desc4, table.attr = 'data-quarto-disable-processing="true"') |>
+  kable_styling(full_width = FALSE) |>
+  column_spec(1, width = "4cm", border_right = T) |>
+  column_spec(2, width = "2cm", border_right = T) |>
+  column_spec(3, width = "10cm") 
+```
 
 The dataframes found in the package related to the data are as follows:
 
@@ -45,7 +167,7 @@ The function in the package to plot a graph based on inputs from the interactive
 
 - `earningsplot()` - Displays a line chart for the entered age group for females from 1979 until 2011.
 
-- `age_groups` - Returns a vector displaying all the available age groups present in the female earnings dataset to aid the user in entering valid age groups in the `earnnigs_plot` function.
+- `age_groups` - Returns a vector displaying all the available age groups present in the female earnings dataset to aid the user in entering valid age groups in the `earnnigsplot` function.
 
 ### Examples:
 
@@ -92,3 +214,7 @@ earningsplot("25-34 years")
 age_groups
 ```
 
+
+### References:
+
+The Datasets were originally developed by jthomasmock and is available on the following GitHub [link](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-03-05).

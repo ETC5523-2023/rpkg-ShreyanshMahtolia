@@ -19,7 +19,8 @@ LazyData: true
 Suggests: 
     knitr,
     rmarkdown,
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    kableExtra
 Imports: 
     dplyr,
     ggplot2,

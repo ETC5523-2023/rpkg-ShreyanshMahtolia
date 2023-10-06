@@ -1,4 +1,4 @@
-library(dplyr)
+library(tidyverse)
 
 employed_gender <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-03-05/employed_gender.csv")  %>%
   select(1, 4, 5, 6, 7) %>%
